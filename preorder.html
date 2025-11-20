@@ -70,7 +70,39 @@
   <button>View Our Products</button>
 </a>
 
-  
+// components/Comments.tsx
+'use client';
+import { useEffect } from 'react';
+
+export default function Comments() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    script.setAttribute('repo', 'your-username/your-repo');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'github-light');
+    const el = document.getElementById('comments');
+    el?.appendChild(script);
+  }, []);
+
+  return <section id="comments" />;
+}
+// app/page.tsx (Next.js 13+)
+import Comments from '@/components/Comments';
+
+export default function Home() {
+  return (
+    <main>
+      <h1>My Vercel App</h1>
+      <Comments />
+    </main>
+  );
+}
+
+
+</script>
 </body>
 </html> 
 
