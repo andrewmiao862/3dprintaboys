@@ -60,56 +60,15 @@
       <br>
        - minecraft tropical fish/clown fish
        <br>
-       -  minecraft horse brown/black/white colour
-        <br>
-        </small>
-      </em>
-    </p>
-    <br>
-    <a href="products.html">
+       -  minecraft horse brown/black/white colour 
+      <br>
+</small>
+</em>
+</p>
+</br>
+<a href="products.html">
   <button>View Our Products</button>
 </a>
-// components/CommentForm.tsx
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-
-export default function CommentForm() {
-  const form = useRef<HTMLFormElement>(null);
-
-  const sendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!form.current) return;
-
-    emailjs.sendForm(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
-      form.current,
-      'YOUR_PUBLIC_KEY'
-    ).then(() => {
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html> 
 
