@@ -68,50 +68,55 @@
 </br>
 <a href="products.html">
   <button>View Our Products</button>
-</a> 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser04/dist/email.min.js"></script> 
-
-<script type="text/javascript">
-  (function(){
-    emailjs.init("B2prgJ33I4ozEh571"); // e.g. "abc123XYZ"
-  })();
+</a>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    emailjs.init("82prg333IAoZh571");  
 </script>
-
+   
+<hr>
+   
 <h2>Contact Form</h2>
 <form id="contactForm">
-  <label>Name:</label><br>
-  <input type="text" id="name" required><br><br>
-
-  <label>Class:</label><br>
-  <input type="text" id="class" required><br><br>
-
-  <label>Product:</label><br>
-  <input type="text" id="product" required><br><br>
-
-  <label>Quantity:</label><br>
-  <input type="number" id="amount" required><br><br>
-
-  <button type="submit">Send Email</button>
+       
+    <label>Name:</label><br>
+    <input type="text" id="name" required><br><br>
+       
+    <label>Class:</label><br>
+    <input type="text" id="class" required><br><br>
+       
+    <label>Product:</label><br>
+    <input type="text" id="product" required><br><br>
+       
+    <label>Quantity:</label><br>
+    <input type="number" id="amount" required><br><br>
+       
+    <button type="submit">Send Email</button>
 </form>
-
+   
 <script>
-  document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevents the form from submitting and refreshing the page
 
-    const templateParams = {
-      name: document.getElementById("name").value,
-      class: document.getElementById("class").value,
-      product: document.getElementById("product").value,
-      amount: document.getElementById("amount").value
-    };
+        // 1. Collect form data using the CORRECT IDs
+        const templateParams = {
+            name: document.getElementById("name").value,
+            class: document.getElementById("class").value,
+            product: document.getElementById("product").value,
+            amount: document.getElementById("amount").value,
+        };
 
-    emailjs.send("service_bi7jf4p", "template_8x1f2gf", templateParams)
-      .then(function(response) {
-        alert("Email sent successfully!");
-      }, function(error) {
-        alert("Failed to send email: " + JSON.stringify(error));
-      });
-  });
+        // 2. Send the email using EmailJS
+        emailjs.send("service_bifjfdp", "template_8x1f2gf", templateParams)
+            .then(function(response) {
+                alert("Email sent successfully!");
+                // OPTIONAL: Clear the form after successful submission
+                document.getElementById("contactForm").reset();
+            }, function(error) {
+                console.error("Failed to send email:", error);
+                alert("Failed to send email. Check the console for details.");
+            });
+    });
 </script>
 
 </body>
